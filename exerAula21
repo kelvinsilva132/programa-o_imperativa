@@ -1,0 +1,52 @@
+//crie um metodo construtor aluno com propriedades :
+//nome
+// sexo
+//ra
+//notas
+//turma
+
+//depois crie um array lista de alunos e crie um objeto por aluno
+
+// e aplique os exercicicos de media das aulas
+
+//media total de alunos lista
+
+//media de alunos homens e mulheres
+
+function Aluno(nome, sexo, id, notas, turma, media){//função construtora
+    this.nome = nome;
+    this.sexo = sexo;
+    this.id = id;
+    this.notas = notas;
+    this.turma= turma;
+    
+    this.media = function(){
+    let media = this.notas.reduce(function(acumulador, item) {
+    console.log(acumulador, item)
+    return acumulador + item;
+    })
+    
+    media = media / this.notas.length;
+    return media.toFixed(2);
+    
+    };
+    };
+    
+    let listaAlunos = [];
+    
+    listaAlunos.push(new Aluno("Kelvin", "M", "20", [8,7,8], 2));
+    listaAlunos.push(new Aluno("Fulano", "M", "20", [8,7,8], 5));
+    listaAlunos.push(new Aluno("beutrano", "M", "20", [8,7,8], 3));
+    
+    //console.log(listaAlunos[2].notas[2]);result 8
+    //console.log(listaAlunos[1].notas[1]); result 7
+    //console.log(listaAlunos);result geral 
+    media = listaAlunos.reduce(function(total,item) {
+
+    })
+        return item.notas +  total.listaAlunos;
+    
+
+
+    console.log(listaAlunos[2].media(2));
+
