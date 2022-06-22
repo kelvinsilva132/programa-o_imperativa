@@ -1,62 +1,67 @@
-const pessoa = [
-    {
-        altura:1.82,
-        sexo:"F"
-    },
-    {
-        altura:1.75,
-        sexo:"F"
-    },
-    {
-        altura:1.55,
-        sexo:"M"
-    },
-    {
-        altura:1.35,
-        sexo:"M"
+// CRIE UM METODO CONSTRUTOR ALUNO COM A PROPRIEDADES : NOME, SEXO, ID, NOTAS, TURMA
+
+// DEPOIS CRIE UM ARRAY LISTA DE ALUNOS E CRIE UM OBJETO POR ALUNO
+
+// E APLIQUE OS EXERCICIOS DE MEDIA DAS AULAS PASSADAS 
+
+// MEDIA TOTAL DE NOTAS 
+
+// MEDIA DE ALUNOS HOMENS E MULHERES
+
+// CRIE UM METODO CONSTRUTOR ALUNO COM A PROPRIEDADES :  NOME, SEXO, ID, NOTAS, TURMA
+
+// DEPOIS CRIE UM ARRAY LISTA DE ALUNOS E CRIE UM OBJETO POR ALUNO
+
+// E APLIQUE OS EXERCICIOS DE MEDIA DAS AULAS PASSADAS 
+
+// MEDIA TOTAL DE NOTAS 
+
+// MEDIA DE ALUNOS HOMENS E MULHERES 
+
+function Aluno(nome, sexo, id, notas, turma, media){
+    this.nome = nome;
+    this.sexo = sexo;
+    this.id = id;
+    this.notas = notas;
+    this.turma = turma;
+    this.media = function(){
+        let media = this.notas.reduce( function(acumulador, item ){
+            // console.log(acumulador, item)
+            return acumulador + item;
+        } );
+        media = media / this.notas.length;
+        return media.toFixed(2);
     }
-];
+}
 
-//console.log( pessoa[0].altura );
+let listaAlunos = [];
+listaAlunos.push(new Aluno("Kelvin", "M", "20", [8,7,8], 2));
+listaAlunos.push(new Aluno("Fulano", "M", "20", [8,7,8], 5));
+listaAlunos.push(new Aluno("beutrano", "M", "20", [8,7,8], 3));
 
-// let menorAltura = 100;
-// let maiorAltura = 0;
+//console.log(listaAlunos[2].notas[2]);result 8
+//console.log(listaAlunos[1].notas[1]); result 7
+//console.log(listaAlunos);result
+// console.log(listaAlunos[2].media());
 
-// pessoa.forEach(function (p) {
-//     //console.log(p.altura)
-//     if(p.altura < menorAltura){
-//         menorAltura = p.altura;
-//     }
-// });
-// //console.log(menorAltura);
+console.log( listaAlunos);
 
-// let media = 0;
-// let qtdm  = 0;
-// for (let i = 0; i < pessoa.length; i++) {
-//     if(pessoa[i].sexo == "F"){
-//         qtdm++;
-//         media = pessoa[i].altura + media;
-//     }
-// }
-// console.log(qtdm)
-// media = media / qtdm;
-// console.log(media.toFixed(2));
+function Aluno(altura, sexo){
+    this.altura = altura;
+    this.sexo = sexo;
+}
 
-let mulheres = pessoa.filter(function (item) {//filtra as mulheres do array
-    return item.sexo == "F";
-});
+let listaAlunos2 = [];
+listaAlunos2.push(new Aluno(1.78, 'M' ));
+listaAlunos2.push(new Aluno(1.60, 'F' ));
+listaAlunos2.push(new Aluno(1.65, 'F' ));
+listaAlunos2.push(new Aluno(1.85, 'M' ));
+listaAlunos2.push(new Aluno(1.70, 'M' ));
+listaAlunos2.push(new Aluno(1.73, 'F' ));
+listaAlunos2.push(new Aluno(1.65, 'M' ));
+listaAlunos2.push(new Aluno(1.70, 'F' ));
+listaAlunos2.push(new Aluno(1.71, 'M' ));
+listaAlunos2.push(new Aluno(1.83, 'M' ));
 
-console.log(mulheres);
 
-media = mulheres.reduce(function(total, item){// soma todos os valores do array
-    return item.altura +  total.altura;
-})
-media = media / mulheres.length; //divide a soma pela quantidade de valores no array 
-console.log(media.toFixed(2));
-
-// function Pessoa (altura, sexo){
-//     this.altura = altura;
-//     this.sexo = sexo;
-// }
-
-// console.log( new Pessoa(1.82, "M") );
+console.log(listaAlunos2);

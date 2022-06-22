@@ -8,7 +8,7 @@
 
 // O usuário poderá alterar o tempo padrão, aumentando ou diminuindo de acordo com sua vontade. Se o tempo informado for maior que 2x o necessário, exibir mensagem que a comida queimou.
 //  Se o tempo for menor que o padrão, exibir a mensagem: "tempo insuficiente"; 
-//  não listadas no menu, devem exibir uma mensagem de erro: "Prato inexistente";
+//  não listadas no menu, devem exibir uma mensagem de erro: "Prato inexistente"; xxxxxxxxxxxx
 //  Se o tempo for 3x maior que o necessário para o prato, o microondas deve exibir a mensagem: “kabumm”;
 //  No final de cada tarefa, o microondas deverá exibir a mensagem: "Prato pronto, bom apetite!!!".
 
@@ -74,11 +74,7 @@ else if(tempo >=24 ){
     console.log ('Kabumm');
 }else if(tempo >= 16) {
     console.log ('A comida queimou')
-}else if (comidas!=comidas){
-    console.log ('Prato inexistente')
-}
-
-else {
+}else {
     console.log ("Prato pronto, bom apetite")
 }
 
