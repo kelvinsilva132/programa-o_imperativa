@@ -1,56 +1,43 @@
-/* 1-Crie uma variável produtos, que contenha um array de objetos,
-    com no mínimo 3 itens. Dentro da variável, liste produtos disponíveis,
-    informando os seguintes detalhes: Nome do Produto, Valor do Produto,
-    Qualidade do Produto e Status.
+const produtos = [ 
+    {
+        nome : "Celular",
+        valor : 1785.50,
+        qualidade : 8,
+        status : true
+    },
+    {
+        nome : "Tenis",
+        valor : 450.50,
+        qualidade : 10,
+        status : true
+    },
+    {
+        nome : "Mouse",
+        valor : 150.00,
+        qualidade : 4,
+        status : true
+    }
+];
 
-
-//A informação Qualidade do Produto deve ser um número que irá de 0 a 10.
-//A informação Status deve ser um Booleano, indicando se o produto está disponível em estoque.
-
-
-//  2 Em seguida, um usuário deseja filtrar os produtos,
-//   com base em alguns critérios. Selecione todos os produtos que tenham: 
-
-
-// Valor entre 482 e 1600;
-// Qualidade superior a 60;
-// Status como disponível.
-
-
-// O resultado do filtro deve ser armazenado na variável carrinho.
-
-
-3 -Por fim, é necessário exibir todos os itens presentes no carrinho,
-com seus nomes e preços correspondentes, e no final um valor total,
-resultante da somatória de todos os produtos.*/
- 
-
-let Produtos = function (nomeP, valorP, qtdP, qualidadeP, statusP){ 
-this.nome = nomeP;
-this.valor = valorP;
-this.qtd = qtdP;
-this.qualidade = qualidadeP;
-this.status = statusP;
-
+const carrinho = {
+    produtos : produtos,
+    valor : function(inicio, fim){
+        this.produtos = this.produtos.filter(function(item){
+            return item.valor >= inicio && item.valor <= fim;
+        });
+    },
+    qualidade : function(valor){
+        this.produtos = this.produtos.filter( item=> item.qualidade >= valor );
+    },
+    status : function(){
+        this.produtos = this.produtos.filter( item=> item.status == true );
+    }
 }
 
-let  Suplementos= [];
-Suplementos.push(new Produtos("WheyProtein", 250, 9, true));
-Suplementos.push(new Produtos("Bcaa", 250, 9, false));
-Suplementos.push(new Produtos("creatina", 250, 9, true));
+console.log( carrinho.produtos );
 
-let filtroP = Suplementos.filter(function(item){
-if ((item.valorP >= 482 && item.valor <= 1600) && (qualidadeP >= 6) && (item.statusP== true))
-return  item;
-}) ;
+carrinho.valor(10,1000);
+carrinho.qualidade(10);
+carrinho.status();
 
-
-console.log(Suplementos)
-
-//let carrinho[];
-//carrinho.push(new filtroP("creatina", 250, 9, false));
-//console.log(carrinho);
-//let venda [];
-
-
-
+console.log( carrinho.produtos );
